@@ -7,7 +7,7 @@ Show your Live Photo and export as GIF.
 
 Demo 
 
-![Demo](https://github.com/KrisYu/LivelyGIFs/blob/master/demo.gif?raw=true)
+![Demo](demo.gif)
 
 
 
@@ -16,7 +16,7 @@ Demo
 
 
 - Do not use Pod or Cathage to install 3rd party library
-- Simple logic 
+- Simple logic, new learner friendly
 
 
 
