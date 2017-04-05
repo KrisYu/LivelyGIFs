@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0d4-Ep-498">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Live Photos-->
+        <scene sceneID="1U8-Ew-TSr">
+            <objects>
+                <collectionViewController id="oyN-qR-5iK" customClass="PhotoCollectionVC" customModule="LivelyGIFs" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="JP5-2k-scD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pdg-97-nQT">
+                            <size key="itemSize" width="110" height="105"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3IB-lI-guW" customClass="PhotoCollectionViewCell" customModule="LivelyGIFs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="105"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vir-37-3tt">
+                                            <rect key="frame" x="0.0" y="-3" width="110" height="108"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="photoImageView" destination="Vir-37-3tt" id="zJp-HQ-fzo"/>
+                                    <segue destination="UUH-RO-AOl" kind="show" id="yik-aA-DEG"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="oyN-qR-5iK" id="OcC-LF-ugT"/>
+                            <outlet property="delegate" destination="oyN-qR-5iK" id="zBB-Bi-LF6"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Live Photos" id="9Is-VD-zXj"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oi1-lD-8Sv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="95.802098950524751"/>
+        </scene>
+        <!--Live PhotoVC-->
+        <scene sceneID="1OU-q0-3ab">
+            <objects>
+                <viewController id="UUH-RO-AOl" customClass="LivePhotoVC" customModule="LivelyGIFs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="22j-ox-MBa"/>
+                        <viewControllerLayoutGuide type="bottom" id="BzO-C7-RJj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wvc-iN-hcc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-he-1J4">
+                                <rect key="frame" x="16" y="104" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Small"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Large"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlClicked:" destination="UUH-RO-AOl" eventType="valueChanged" id="6Wi-aV-dE6"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZE-cZ-nWL">
+                                <rect key="frame" x="66" y="557" width="240" height="60"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fQM-OL-RPC"/>
+                                    <constraint firstAttribute="width" constant="240" id="zuk-6c-hsi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Export GIF"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="exportShareButton:" destination="UUH-RO-AOl" eventType="touchUpInside" id="lVu-WP-Mab"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P1r-he-1J4" firstAttribute="top" secondItem="22j-ox-MBa" secondAttribute="bottom" constant="40" id="Zit-cS-hwb"/>
+                            <constraint firstItem="BzO-C7-RJj" firstAttribute="top" secondItem="fZE-cZ-nWL" secondAttribute="bottom" constant="50" id="anu-z7-Qla"/>
+                            <constraint firstItem="P1r-he-1J4" firstAttribute="leading" secondItem="Wvc-iN-hcc" secondAttribute="leadingMargin" id="da4-aq-G3d"/>
+                            <constraint firstItem="P1r-he-1J4" firstAttribute="trailing" secondItem="Wvc-iN-hcc" secondAttribute="trailingMargin" id="geA-nd-eAh"/>
+                            <constraint firstItem="fZE-cZ-nWL" firstAttribute="leading" secondItem="Wvc-iN-hcc" secondAttribute="leadingMargin" constant="50" id="qU2-xC-W8b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exportShareButton" destination="fZE-cZ-nWL" id="JMN-b7-cxX"/>
+                        <outlet property="gifSizeSegmentedControl" destination="P1r-he-1J4" id="G5I-HQ-w1j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3c7-Cs-bMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941.5999999999999" y="95.802098950524751"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9hc-Pc-iZj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0d4-Ep-498" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3x9-R3-S9O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oyN-qR-5iK" kind="relationship" relationship="rootViewController" id="iQe-3P-asf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01B-gJ-zaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="95.802098950524751"/>
+        </scene>
+    </scenes>
+</document>
