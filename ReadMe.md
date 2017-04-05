@@ -1,13 +1,13 @@
 # LivelyGIFs
 
-Show your Live Photo and export as GIF.
+Show your Live Photo and export as GIF. 
 
-# SwiftGif [![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
 Demo 
 
-![Demo](demo.gif)
+![Demo](https://github.com/KrisYu/LivelyGIFs/blob/master/demo.gif?raw=true)
 
 
 
