@@ -56,12 +56,14 @@ class LivePhotoVC: UIViewController {
                     self.photoView.livePhoto = livePhoto
                     self.photoView.startPlayback(with: .hint)
                     
-                    let geoCoder = CLGeocoder()
-                    geoCoder.reverseGeocodeLocation(photoAsset.location!, completionHandler: { (placemark: [CLPlacemark]?, error: Error?) in
-                        if error == nil {
-                            self.navigationItem.title = placemark?.first?.locality
-                        }
-                    })
+                    if let photoLocation = photoAsset.location {
+                        let geoCoder = CLGeocoder()
+                        geoCoder.reverseGeocodeLocation(photoLocation, completionHandler: { (placemark: [CLPlacemark]?, error: Error?) in
+                            if error == nil {
+                                self.navigationItem.title = placemark?.first?.locality
+                            }
+                        })
+                    }
                 }
             })
         }
