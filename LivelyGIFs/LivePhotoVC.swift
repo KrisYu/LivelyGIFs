@@ -105,7 +105,9 @@ class LivePhotoVC: UIViewController {
             if error != nil{
                 print("Could not write video file")
             } else {
-                self.convertToGIF(movieURL)
+                DispatchQueue.main.async {
+                    self.convertToGIF(movieURL)
+                }
             }
         }
     }
