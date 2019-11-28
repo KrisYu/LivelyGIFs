@@ -117,7 +117,7 @@ class LivePhotoVC: UIViewController {
         
         // collect the needed parameters
         let duration = CMTimeGetSeconds(movieAsset.duration)
-        let track = movieAsset.tracks(withMediaType: AVMediaTypeVideo).first!
+        let track = movieAsset.tracks(withMediaType: AVMediaType.video).first!
         let frameRate = track.nominalFrameRate
         
         gifURL = URL(fileURLWithPath: (NSTemporaryDirectory()).appending("file.gif"))

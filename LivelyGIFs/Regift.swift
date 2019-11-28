@@ -259,7 +259,7 @@ public struct Regift {
         
         for frameNumber in 0 ..< frameCount {
             let seconds: Float64 = Float64(startTime) + (Float64(increment) * Float64(frameNumber))
-            let time = CMTimeMakeWithSeconds(seconds, Constants.TimeInterval)
+            let time = CMTimeMakeWithSeconds(seconds, preferredTimescale: Constants.TimeInterval)
             
             timePoints.append(time)
         }
@@ -287,7 +287,7 @@ public struct Regift {
      */
     public func createGIFForTimePoints(_ timePoints: [TimePoint], fileProperties: [String: AnyObject], frameProperties: [String: AnyObject], frameCount: Int, width: Int, height: Int) throws -> URL {
         // Ensure the source media is a valid file.
-        guard asset.tracks(withMediaCharacteristic: AVMediaCharacteristicVisual).count > 0 else {
+        guard asset.tracks(withMediaCharacteristic: AVMediaCharacteristic.visual).count > 0 else {
             throw RegiftError.SourceFormatInvalid
         }
         
@@ -310,7 +310,7 @@ public struct Regift {
         generator.appliesPreferredTrackTransform = true
         generator.maximumSize = CGSize(width: width, height: height)
         
-        let tolerance = CMTimeMakeWithSeconds(Constants.Tolerance, Constants.TimeInterval)
+        let tolerance = CMTimeMakeWithSeconds(Constants.Tolerance, preferredTimescale: Constants.TimeInterval)
         generator.requestedTimeToleranceBefore = tolerance
         generator.requestedTimeToleranceAfter = tolerance
         
@@ -327,7 +327,7 @@ public struct Regift {
         
         generator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { (requestedTime, image, actualTime, result, error) in
             guard let imageRef = image , error == nil else {
-                print("An error occurred: \(error), image is \(image)")
+                print("An error occurred: \(String(describing: error)), image is \(String(describing: image))")
                 dispatchError = true
                 gifGroup.leave()
                 return

@@ -59,8 +59,8 @@ class PhotoCollectionVC: UICollectionViewController {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Settings", style: .default, handler:{ (action: UIAlertAction) in
-            let url = URL(string: UIApplicationOpenSettingsURLString)
-            UIApplication.shared.open(url!, options: ["" : ""], completionHandler: nil)
+            let url = URL(string: UIApplication.openSettingsURLString)
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
             return
         }))
         
